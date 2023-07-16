@@ -1,0 +1,21 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "jacobwasbeast.serverwhitelist.mixins",
+  "compatibilityLevel": "JAVA_17",
+  "mixins": [
+  ],
+  "server": [
+    "Server",
+    "ServerNetworkPackets",
+    "ServerNetworkPacketsEntity"
+  ],
+  "client": [
+    "Client",
+    "ClientInput",
+    "ClientInputMouse"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
