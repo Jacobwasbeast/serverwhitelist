@@ -31,7 +31,7 @@ public abstract class Server {
                 }
                 long currentTime = System.currentTimeMillis();
                 if (Main.lastSaid + 60000 < currentTime) {
-                    this.getPlayerManager().getPlayerList().get(i).sendMessage(Text.literal("§6§lYou are not allowed to play on this server until there are at least " + Main.config.neededPlayers + " players online.  There are " + this.getPlayerManager().getPlayerList().size() + " including yourself."), false);
+                    this.getPlayerManager().getPlayerList().get(i).sendMessage(Text.literal("§6§lYou are not allowed to play on this server until there are at least " + Main.config.neededPlayers + " players online.  There is only " + this.getPlayerManager().getPlayerList().size() + " including yourself."), false);
                     Main.lastSaid = currentTime;
                 }
                 this.getPlayerManager().getPlayerList().get(i).setInvulnerable(true);

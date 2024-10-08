@@ -43,7 +43,7 @@ public class ServerWhitelistCommand implements CommandRegistrationCallback {
                                         for (ServerPlayerEntity player : context.getSource().getServer().getPlayerManager().getPlayerList()) {
                                             Main.syncToPlayer(player);
                                         }
-                                        context.getSource().sendFeedback((Supplier<Text>) Text.literal("Set needed players to " + Main.config.neededPlayers), false);
+                                        context.getSource().sendMessage(Text.literal("Set needed players to " + Main.config.neededPlayers));
                                         return 1;
                                     }
                                 })
