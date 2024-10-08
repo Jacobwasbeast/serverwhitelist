@@ -27,7 +27,6 @@ public abstract class Server {
                     this.getPlayerManager().getPlayerList().get(i).teleport(Main.pos.get(this.getPlayerManager().getPlayerList().get(i).getUuid()).getX(), Main.pos.get(this.getPlayerManager().getPlayerList().get(i).getUuid()).getY(), Main.pos.get(this.getPlayerManager().getPlayerList().get(i).getUuid()).getZ());
                 }
                 else {
-                    Main.syncToPlayer(this.getPlayerManager().getPlayerList().get(i));
                     Main.pos.put(this.getPlayerManager().getPlayerList().get(i).getUuid(), this.getPlayerManager().getPlayerList().get(i).getPos());
                 }
                 long currentTime = System.currentTimeMillis();
@@ -37,7 +36,7 @@ public abstract class Server {
                 }
                 this.getPlayerManager().getPlayerList().get(i).setInvulnerable(true);
                 if (Main.server==null) {
-                    Main.server = this.getPlayerManager().getPlayerList().get(i).world.getServer();;
+                    Main.server = this.getPlayerManager().getPlayerList().get(i).getServerWorld().getServer();;
                 }
             }
             Main.doa = true;
