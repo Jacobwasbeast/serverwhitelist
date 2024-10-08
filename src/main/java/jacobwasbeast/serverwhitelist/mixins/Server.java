@@ -30,8 +30,10 @@ public abstract class Server {
                     Main.syncToPlayer(this.getPlayerManager().getPlayerList().get(i));
                     Main.pos.put(this.getPlayerManager().getPlayerList().get(i).getUuid(), this.getPlayerManager().getPlayerList().get(i).getPos());
                 }
-                if (new Random().nextInt(2000)==1) {
+                long currentTime = System.currentTimeMillis();
+                if (Main.lastSaid + 60000 < currentTime) {
                     this.getPlayerManager().getPlayerList().get(i).sendMessage(Text.literal("§6§lYou are not allowed to play on this server until there are at least " + Main.config.neededPlayers + " players online.  There are " + this.getPlayerManager().getPlayerList().size() + " including yourself."), false);
+                    Main.lastSaid = currentTime;
                 }
                 this.getPlayerManager().getPlayerList().get(i).setInvulnerable(true);
                 if (Main.server==null) {

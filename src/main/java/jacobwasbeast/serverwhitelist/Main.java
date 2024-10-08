@@ -25,6 +25,7 @@ public class Main implements net.fabricmc.api.ModInitializer {
     public static HashMap<UUID, Vec3d> pos = new HashMap<UUID, net.minecraft.util.math.Vec3d>();
     public static Config config;
     public static Identifier id = new Identifier("serverwhitelist", "sync_config");
+    public static long lastSaid = 0;
     @Override
     public void onInitialize() {
         System.out.println("Hello Fabric world!");
