@@ -1,11 +1,10 @@
 package jacobwasbeast.serverwhitelist;
 
-import com.mojang.authlib.GameProfile;
+import jacobwasbeast.serverwhitelist.commands.ServerWhitelistCommand;
 import jacobwasbeast.serverwhitelist.config.Config;
-import jacobwasbeast.serverwhitelist.mixins.Server;
 import me.shedaniel.autoconfig.AutoConfig;
 import me.shedaniel.autoconfig.serializer.Toml4jConfigSerializer;
-import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
+import net.fabricmc.fabric.api.command.v2.CommandRegistrationCallback;
 import net.fabricmc.fabric.api.networking.v1.PacketByteBufs;
 import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
 import net.minecraft.network.PacketByteBuf;
@@ -14,7 +13,6 @@ import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.Vec3d;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.UUID;
 
@@ -36,8 +34,8 @@ public class Main implements net.fabricmc.api.ModInitializer {
             Main.syncToPlayer(player);
             System.out.println("Sending config to client: " + config.neededPlayers);
         });
+        CommandRegistrationCallback.EVENT.register(ServerWhitelistCommand::new);
     }
-
     public static boolean canDoAnything(MinecraftServer server) {
         if (server.getPlayerManager().getPlayerList().size() < Main.config.neededPlayers) {
             return false;
