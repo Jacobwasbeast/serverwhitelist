@@ -10,5 +10,11 @@ The Minecraft Server Whitelist Mod provides server administrators with the abili
 
 ## Documentation
 
-For detailed documentation, visit the [Minecraft Server Whitelist Mod Documentation](https://jacobwasbeast.net/docs/minecraft-server-whitelist-mod.html).
+Right now there is only a config file located in ./config/serverwhitelist.toml
+and the only option is neededPlayers
+This sets how many players are needed on the server so progression can continue.
+This can also be set with the command (serverwhitelist set [players])
+
+## Preview
+![preview](https://i.imgur.com/BXhIf4G.png)
 
