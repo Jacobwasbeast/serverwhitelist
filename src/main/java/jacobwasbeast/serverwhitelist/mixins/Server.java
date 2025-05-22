@@ -34,7 +34,6 @@ public abstract class Server {
                     this.getPlayerManager().getPlayerList().get(i).sendMessage(Text.literal("§6§lYou are not allowed to play on this server until there are at least " + Main.config.neededPlayers + " players online.  There is only " + this.getPlayerManager().getPlayerList().size() + " including yourself."), false);
                     Main.lastSaid = currentTime;
                 }
-                this.getPlayerManager().getPlayerList().get(i).setInvulnerable(true);
                 if (Main.server==null) {
                     Main.server = this.getPlayerManager().getPlayerList().get(i).getServerWorld().getServer();;
                 }
@@ -46,7 +45,6 @@ public abstract class Server {
             if (Main.doa) {
                 for (int i = 0; i < this.getPlayerManager().getPlayerList().size(); i++) {
                     this.getPlayerManager().getPlayerList().get(i).sendMessage(Text.literal("You are now allowed to play on this server."), false);
-                    this.getPlayerManager().getPlayerList().get(i).setInvulnerable(false);
                 }
                 Main.doa = false;
                 Main.pos.clear();
